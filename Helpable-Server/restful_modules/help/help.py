@@ -100,8 +100,8 @@ class HelpResponse(Resource):
 
     def delete(self):
         # 기여 취소
-        idx = request.form['idx']
         id = request.form['id']
+        idx = request.form['idx']
 
         self.db.execute(query_formats.delete_contributor_format % (int(idx), id))
 
@@ -113,8 +113,8 @@ class Accept(Resource):
     db = Database()
 
     def post(self):
-        idx = request.form['idx']
         id = request.form['id']
+        idx = request.form['idx']
 
         self.db.execute(query_formats.select_contributor_format % (id, int(idx)))
         user_info = self.db.execute(query_formats.get_user_info_format % id)

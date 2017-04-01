@@ -14,6 +14,7 @@ class UserInfo(Resource):
         for row in user_info:
             if row['type'] == 1 or row['type'] == 2:
                 data = {
+                    'id': row['id'],
                     'name': row['name'],
                     'age': row['age'],
                     'type': row['type'],
@@ -23,6 +24,7 @@ class UserInfo(Resource):
 
             elif row['type'] == 3:
                 data = {
+                    'id': row['id'],
                     'name': row['name'],
                     'age': row['age'],
                     'type': row['type'],
@@ -36,4 +38,4 @@ class UserInfo(Resource):
             data['give'] = row['give']
             data['take'] = row['take']
 
-        return jsonify(result=data), 200
+        return jsonify(result=data)
