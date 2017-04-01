@@ -7,16 +7,34 @@ import query_formats
 class PersonInfo(Resource):
     db = Database()
 
-    def post(self):
-        id = request.form['id']
+    def get(self):
+        id = request.args.get('id')
 
-        rows = self.db.execute(query_formats.get_other_person_info_format % id)
-        for row in rows:
+        user_info = self.db.execute(query_formats.get_person_data_format % id)
+        for row in user_info:
             if row['type'] == 1 or row['type'] == 2:
                 data = {
                     'name': row['name'],
                     'age': row['age'],
-
+                    'type': row['type'],
+                    'gender': row['gender'],
+                    'affiliation': row['affiliation']
                 }
+
             elif row['type'] == 3:
+                data = {
+                    'name': row['name'],
+                    'age': row['age'],
+                    'type': row['type'],
+                    'gender': row['gender'],
+                    'disability_rating': row['disability_rating'],
+                    'disability_type': row['disability_type']
+                }
                 pass
+
+        user_activity = self.db.execute(query_formats.get_person_activity_format)
+        for row in user_activity:
+            data['give'] = row['give']
+            data['take'] = row['take']
+
+        return json.dumps(data), 200
