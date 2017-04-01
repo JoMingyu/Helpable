@@ -86,3 +86,15 @@ class Password(Resource):
 
         self.db.execute(query_formats.password_change_format % (password, id))
         return '', 201
+
+
+class Token(Resource):
+    # 토큰 업데이트
+    db = Database()
+
+    def post(self):
+        id = request.form['id']
+        registration_key = request.form['token']
+
+        self.db.execute(query_formats.registration_id_change_format % (registration_key, id))
+        return '', 201

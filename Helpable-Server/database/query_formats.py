@@ -12,6 +12,9 @@ ordinary_person_signup_format = "UPDATE account SET affiliation='%s' WHERE id='%
 # 비밀번호 변경 포맷
 password_change_format = "UPDATE account SET password='%s' WHERE id='%s'"
 
+# registration id 변경 포맷
+registration_id_change_format = "UPDATE account SET registration_key='%s' WHERE id='%s'"
+
 # ---
 
 # 푸쉬알림용 registration id get 포맷

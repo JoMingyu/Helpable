@@ -1,7 +1,8 @@
-def temp(st=None):
-    if st is None:
-        print('asdfasdf')
-    else:
-        print(st)
+from pyfcm import FCMNotification
 
-temp('cvz')
+push_service = FCMNotification(api_key='AIzaSyDEqNM3DgDvmxryb2pDrjry5wLHuT8NPjI')
+
+result = push_service.notify_topic_subscribers(message_body='asdfasdfasdf',
+                                               topic_name='all')
+
+print(result)

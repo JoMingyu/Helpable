@@ -7,7 +7,7 @@ from firebase_push import FCMSender
 
 class HelpRequest(Resource):
     db = Database()
-    sender = FCMSender('AAAA9LkX9Zs:APA91bHyu886FvO46OzqQLkBofJfxpszMI9_HpBrMTPkTed46hzsColH0K9sloVNRaiRwszAn17eDPfue5-KtzS0Q0gPekTgyzRa1CjgbpBathxpD6OH0lsj8CHDJVt8DDRQuVu8_Xjh')
+    sender = FCMSender('AIzaSyDEqNM3DgDvmxryb2pDrjry5wLHuT8NPjI')
 
     def post(self):
         # 도움 요청
@@ -19,7 +19,7 @@ class HelpRequest(Resource):
         user_info = self.db.execute(query_formats.get_user_info_format % id)
         self.db.execute(query_formats.request_help_format % (id, user_info[0]['registration_key'], float(longitude), float(latitude), content))
         self.sender.send('Helpable',
-                         user_info[0]['name'] + '님이 도움을 요청합니다.')
+                         user_info[0]['name'] + '님에게 도움이 필요합니다.')
 
         return '', 201
 
@@ -45,7 +45,7 @@ class HelpRequest(Resource):
 
             help_list.append(data)
 
-        return jsonify(result=data)
+        return jsonify(result=help_list)
 
     def delete(self):
         # 도움 요청 취소
@@ -73,9 +73,11 @@ class HelpResponse(Resource):
         self.db.execute(query_formats.response_help_format % (int(idx), id))
         requester_info = self.db.execute(query_formats.get_help_format % idx)
         requester_key = requester_info[0]['requester_key']
+        # self.sender.send('Helpable',
+        #                  '도우미가 나타났습니다.',
+        #                  requester_key)
         self.sender.send('Helpable',
-                         '기여자가 나타났습니다.',
-                         requester_key)
+                         '도우미가 나타났습니다.')
         return '', 201
 
     def get(self):
@@ -96,7 +98,7 @@ class HelpResponse(Resource):
             }
             contributor_list.append(data)
 
-        return jsonify(result=data)
+        return jsonify(result=contributor_list)
 
     def delete(self):
         # 기여 취소
@@ -119,9 +121,11 @@ class Accept(Resource):
         self.db.execute(query_formats.select_contributor_format % (id, int(idx)))
         user_info = self.db.execute(query_formats.get_user_info_format % id)
         contributor_key = user_info[0]['registration_key']
-        self.sender.send('Helpable',
-                         'asdfasdf',
-                         contributor_key)
+        # self.sender.send('Helpable - 도우미',
+        #                  '당신의 도움으로 차별없는 세상을 만들어주세요.',
+        #                  contributor_key)
+        self.sender.send('Helpable - 도우미',
+                         '당신의 도움으로 차별없는 세상을 만들어주세요.')
 
         return '', 201
 
