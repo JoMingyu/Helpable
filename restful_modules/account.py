@@ -11,6 +11,7 @@ class SignUp(Resource):
     def post(self):
         id = request.form['id']
         password = request.form['password']
+        registration_key = request.form['token']
         name = request.form['name']
         age = request.form['age']
         type = request.form['type']
@@ -23,7 +24,7 @@ class SignUp(Resource):
             return '', 409
         else:
             # id 미존재
-            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, name, int(age), int(type), gender))
+            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, registration_key, name, int(age), int(type), gender))
             if type == '1' or type == '2':
                 # 일반인
                 affiliation = request.form['affiliation']
@@ -40,7 +41,6 @@ class SignUp(Resource):
 
 class SignIn(Resource):
     # 로그인
-    # SNS 미연결 시
     db = Database()
 
     def post(self):
