@@ -10,7 +10,7 @@ class UserInfo(Resource):
     def get(self):
         id = request.args.get('id')
 
-        user_info = self.db.execute(query_formats.get_user_data_format % id)
+        user_info = self.db.execute(query_formats.get_user_info_format % id)
         for row in user_info:
             if row['type'] == 1 or row['type'] == 2:
                 data = {

@@ -21,8 +21,8 @@ class SignUp(Resource):
         password_answer = request.form['password_answer']
         # Not null 데이터들
 
-        rows = self.db.execute(query_formats.id_exist_check_format % id)
-        if rows:
+        account = self.db.execute(query_formats.id_exist_check_format % id)
+        if account:
             # id 존재
             return '', 409
         else:
@@ -51,10 +51,10 @@ class SignIn(Resource):
         id = request.form['id']
         password = request.form['password']
 
-        rows = self.db.execute(query_formats.id_exist_check_format % id)
-        if rows:
+        account = self.db.execute(query_formats.id_exist_check_format % id)
+        if account:
             # id에 해당하는 계정 존재
-            if rows[0]['password'] == password:
+            if account[0]['password'] == password:
                 # 로그인 성공
                 return '', 201
             else:
@@ -72,9 +72,9 @@ class Password(Resource):
         # 질문 정보 제공
         id = request.args.get('id')
 
-        rows = self.db.execute(query_formats.get_user_data_format % id)
-        data = {'question': rows[0]['password_question'],
-                'answer': rows[0]['password_answer']}
+        user_info = self.db.execute(query_formats.get_user_info_format % id)
+        data = {'question': user_info[0]['password_question'],
+                'answer': user_info[0]['password_answer']}
 
         return json.dumps(data)
 

@@ -25,11 +25,11 @@ class HelpRequest(Resource):
         return '', 201
 
     def get(self):
-        # 도움 요청 정보
+        # 도움 요청 목록
         help_rows = self.db.execute(query_formats.get_help_list_format)
         help_list = []
         for row in help_rows:
-            user_info = self.db.execute(query_formats.get_user_data_format % row['requester_id'])
+            user_info = self.db.execute(query_formats.get_user_info_format % row['requester_id'])
             data = {
                 'idx': row['idx'],
                 'longi': row['longitude'],
@@ -41,13 +41,27 @@ class HelpRequest(Resource):
                 'disability_rating': user_info[0]['disability_rating'],
                 'disability_type': user_info[0]['disability_type']
             }
+
+            if row['contributor_id']:
+                data['has_contributor'] = True
+
             help_list.append(data)
 
         return json.dumps(help_list)
 
     def delete(self):
         # 도움 요청 취소
-        pass
+        id = request.form['id']
+        idx = request.form['idx']
+
+        # 도움 요청의 주인이 맞는지 확인
+        help = self.db.execute(query_formats.get_help_list_format % int(idx))
+        if id == help[0]['requester_id']:
+            self.db.execute(query_formats.delete_help_format % int(idx))
+            return '', 200
+
+        else:
+            return '', 404
 
 
 class HelpResponse(Resource):
