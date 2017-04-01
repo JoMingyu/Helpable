@@ -52,7 +52,7 @@ class SignIn(Resource):
             # id에 해당하는 계정 존재
             if rows[0]['password'] == password:
                 # 로그인 성공
-                return '', 201
+                return 'success', 201
             else:
                 return '', 404
         else:
