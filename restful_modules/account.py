@@ -18,6 +18,8 @@ class SignUp(Resource):
         gender = request.form['gender']
         # Not null 데이터들
 
+        print('Requested', id, password)
+
         rows = self.db.execute(query_formats.id_exist_check_format % id)
         if rows:
             # id 존재

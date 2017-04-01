@@ -4,3 +4,5 @@ signup_primary_data_insert_format = "INSERT INTO account(id, password, registrat
 disabled_person_signup_format = "UPDATE account SET disability_rating=%d, disability_type='%s' WHERE id='%s'"
 ordinary_person_signup_format = "UPDATE account SET affiliation='%s' WHERE id='%s'"
 get_registration_id_format = "SELECT registration_key from account"
+
+get_other_person_info_format = "SELECT * FROM account WHERE id='%s'"

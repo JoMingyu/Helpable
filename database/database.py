@@ -13,6 +13,12 @@ class Database:
     db = 'helpable'
     charset = 'utf8'
 
+    # host = 'localhost'
+    # user = 'root'
+    # password = ''
+    # db = 'helpable'
+    # charset = 'utf8'
+
     _instance = None
 
     def __new__(cls):
