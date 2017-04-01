@@ -23,18 +23,18 @@ class SignUp(Resource):
             return '', 409
         else:
             # id 미존재
-            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, name, age, type, gender))
-            if type == 1 or type == 2:
+            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, name, int(age), int(type), gender))
+            if type == '1' or type == '2':
                 # 일반인
                 affiliation = request.form['affiliation']
                 self.db.execute(query_formats.ordinary_person_signup_format % (affiliation, id))
                 return '', 201
 
-            elif type == 3:
+            elif type == '3':
                 # 장애인
                 disability_rating = request.form['disability_rating']
                 disability_type = request.form['disability_type']
-                self.db.execute(query_formats.disabled_person_signup_format % (disability_rating, disability_type, id))
+                self.db.execute(query_formats.disabled_person_signup_format % (int(disability_rating), disability_type, id))
                 return '', 201
 
 
