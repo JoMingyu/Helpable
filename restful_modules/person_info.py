@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, json
 from database import Database
 import query_formats
 
@@ -12,4 +12,11 @@ class PersonInfo(Resource):
 
         rows = self.db.execute(query_formats.get_other_person_info_format % id)
         for row in rows:
-            pass
+            if row['type'] == 1 or row['type'] == 2:
+                data = {
+                    'name': row['name'],
+                    'age': row['age'],
+
+                }
+            elif row['type'] == 3:
+                pass
