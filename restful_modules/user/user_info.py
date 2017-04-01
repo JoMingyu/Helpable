@@ -4,13 +4,13 @@ from database import Database
 import query_formats
 
 
-class PersonInfo(Resource):
+class UserInfo(Resource):
     db = Database()
 
     def get(self):
         id = request.args.get('id')
 
-        user_info = self.db.execute(query_formats.get_person_data_format % id)
+        user_info = self.db.execute(query_formats.get_user_data_format % id)
         for row in user_info:
             if row['type'] == 1 or row['type'] == 2:
                 data = {
@@ -32,7 +32,7 @@ class PersonInfo(Resource):
                 }
                 pass
 
-        user_contribution = self.db.execute(query_formats.get_person_contribution_format % id)
+        user_contribution = self.db.execute(query_formats.get_user_contribution_format % id)
         for row in user_contribution:
             data['give'] = row['give']
             data['take'] = row['take']

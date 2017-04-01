@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, json
 from database import Database
 import query_formats
 
@@ -17,9 +17,9 @@ class SignUp(Resource):
         type = request.form['type']
         gender = request.form['gender']
         phone_number = request.form['phone_number']
+        password_question = request.form['password_question']
+        password_answer = request.form['password_answer']
         # Not null 데이터들
-
-        print('Requested', id, password)
 
         rows = self.db.execute(query_formats.id_exist_check_format % id)
         if rows:
@@ -27,7 +27,7 @@ class SignUp(Resource):
             return '', 409
         else:
             # id 미존재
-            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, registration_key, name, int(age), int(type), gender, phone_number))
+            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, registration_key, name, int(age), int(type), gender, phone_number, password_question, password_answer))
             self.db.execute(query_formats.person_contribution_initialize_format % id)
             if type == '1' or type == '2':
                 # 일반인
@@ -51,14 +51,37 @@ class SignIn(Resource):
         id = request.form['id']
         password = request.form['password']
 
-        rows = self.db.execute("SELECT * FROM account WHERE id='", id, "'")
+        rows = self.db.execute(query_formats.id_exist_check_format % id)
         if rows:
             # id에 해당하는 계정 존재
             if rows[0]['password'] == password:
                 # 로그인 성공
-                return 'success', 201
+                return '', 201
             else:
                 return '', 404
         else:
             # 계정 미존재
             return '', 404
+
+
+class Password(Resource):
+    # 비밀번호 찾기
+    db = Database()
+
+    def get(self):
+        # 질문 정보 제공
+        id = request.args.get('id')
+
+        rows = self.db.execute(query_formats.get_user_data_format % id)
+        data = {'question': rows[0]['password_question'],
+                'answer': rows[0]['password_answer']}
+
+        return json.dumps(data)
+
+    def post(self):
+        # 비밀번호 변경
+        id = request.form['id']
+        password = request.form['password']
+
+        self.db.execute(query_formats.password_change_format % (password, id))
+        return '', 201
