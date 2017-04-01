@@ -12,12 +12,16 @@ ordinary_person_signup_format = "UPDATE account SET affiliation='%s' WHERE id='%
 # 비밀번호 변경 포맷
 password_change_format = "UPDATE account SET password='%s' WHERE id='%s'"
 
+# ---
+
 # 푸쉬알림용 registration id get 포맷
 get_registration_id_format = "SELECT registration_key from account"
 
 # 사용자 정보 get 포맷
 get_user_info_format = "SELECT * FROM account WHERE id='%s'"
 get_user_contribution_format = "SELECT * FROM user_contribution WHERE id='%s'"
+
+# ---
 
 # 도움 요청 데이터 삽입 포맷
 request_help_format = "INSERT INTO help_list(requester_id, requester_key, date, longitude, latitude, content) VALUES('%s', '%s', CURDATE(), %f, %f, '%s')"
@@ -31,6 +35,8 @@ get_help_format = "SELECT * FROM help_list WHERE idx=%d"
 # 도움 요청 삭제 포맷
 delete_help_format = "DELETE FROM help_list WHERE idx=%d"
 
+# ---
+
 # 기여자 등록 포맷
 response_help_format = "INSERT INTO contributors(idx, contributor_id) VALUES(%d, '%s')"
 
@@ -41,4 +47,4 @@ contributor_exist_chack_format = "SELECT * FROM contributors WHERE idx=%d AND co
 get_contributor_list_format = "SELECT * FROM contributors WHERE idx=%d"
 
 # 기여 취소 포맷
-delete_contributor_format
+delete_contributor_format = "DELETE FROM contributors WHERE idx=%d AND contributor_id='%s'"

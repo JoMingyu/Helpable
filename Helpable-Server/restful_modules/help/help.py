@@ -2,12 +2,12 @@ from flask_restful import Resource
 from flask import request, json
 from database import Database
 import query_formats
-from firebase import firebase_push
+from firebase_push import FCMSender
 
 
 class HelpRequest(Resource):
     db = Database()
-    sender = firebase_push.FCMSender('AAAA9LkX9Zs:APA91bHyu886FvO46OzqQLkBofJfxpszMI9_HpBrMTPkTed46hzsColH0K9sloVNRaiRwszAn17eDPfue5-KtzS0Q0gPekTgyzRa1CjgbpBathxpD6OH0lsj8CHDJVt8DDRQuVu8_Xjh')
+    sender = FCMSender('AAAA9LkX9Zs:APA91bHyu886FvO46OzqQLkBofJfxpszMI9_HpBrMTPkTed46hzsColH0K9sloVNRaiRwszAn17eDPfue5-KtzS0Q0gPekTgyzRa1CjgbpBathxpD6OH0lsj8CHDJVt8DDRQuVu8_Xjh')
 
     def post(self):
         # 도움 요청
@@ -46,7 +46,7 @@ class HelpRequest(Resource):
 
             help_list.append(data)
 
-        return json.dumps(help_list)
+        return json.dumps(help_list), 200
 
     def delete(self):
         # 도움 요청 취소
@@ -71,23 +71,20 @@ class HelpResponse(Resource):
         id = request.form['id']
         idx = request.form['idx']
 
-        self.db.execute(query_formats.response_help_format % (idx, id))
+        self.db.execute(query_formats.response_help_format % (int(idx), id))
         # 푸쉬
         return '', 201
 
     def get(self):
         # 도움 요청자가 열람 가능한 기여자 목록
-        idx = request.form['idx']
+        idx = request.args.get('idx')
 
-        contributor_rows = self.db.execute(query_formats.get_contributor_list_format % idx)
+        contributor_rows = self.db.execute(query_formats.get_contributor_list_format % int(idx))
         contributor_list = []
         for row in contributor_rows:
-            user_info = self.db.execute(query_formats.get_user_info_format % row['requester_id'])
+            user_info = self.db.execute(query_formats.get_user_info_format % row['contributor_id'])
             data = {
                 'idx': row['idx'],
-                'longi': row['longitude'],
-                'lati': row['latitude'],
-                'content': row['content'],
                 'name': user_info[0]['name'],
                 'age': user_info[0]['age'],
                 'gender': user_info[0]['gender'],
@@ -95,14 +92,16 @@ class HelpResponse(Resource):
             }
             contributor_list.append(data)
 
-        return json.dumps(data)
+        return json.dumps(data), 200
 
     def delete(self):
         # 기여 취소
         idx = request.form['idx']
         id = request.form['id']
 
-        pass
+        self.db.execute(query_formats.delete_contributor_format % (int(idx), id))
+
+        return '', 200
 
 
 class Accept(Resource):
