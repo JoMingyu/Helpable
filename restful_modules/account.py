@@ -9,44 +9,33 @@ class SignUp(Resource):
     db = Database()
 
     def post(self):
-        connect_sns = request.form['connect_sns']
-        if connect_sns == 'True' or connect_sns == 'true':
-            # sns 연결 시
-            uuid = request.form['uuid']
+        id = request.form['id']
+        password = request.form['password']
+        name = request.form['name']
+        age = request.form['age']
+        type = request.form['type']
+        gender = request.form['gender']
+        # Not null 데이터들
 
-            rows = self.db.execute("SELECT * FROM account WHERE uuid='", uuid, "'")
-            if rows:
-                # uuid 중복 시
-                return '', 409
-            else:
-                # 가입되어 있지 않을 때
-                self.db.execute(query_formats.register_sns_account_format % uuid)
+        rows = self.db.execute(query_formats.id_exist_check_format % id)
+        if rows:
+            # id 존재
+            return '', 409
+        else:
+            # id 미존재
+            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, name, age, type, gender))
+            if type == 1 or type == 2:
+                # 일반인
+                affiliation = request.form['affiliation']
+                self.db.execute(query_formats.ordinary_person_signup_format % (affiliation, id))
                 return '', 201
 
-        else:
-            # sns 미연결 시
-            uuid = request.form['uuid']
-            id = request.form['id']
-            password = request.form['password']
-
-            rows = self.db.execute("SELECT * FROM account WHERE uuid='", uuid, "'")
-            if rows:
-                # uuid 중복 시
-                return 'conflict uuid', 409
-            else:
-                # uuid 미중복 시
-                rows = self.db.execute("SELECT * FROM account WHERE id='", id, "'")
-                if rows:
-                    # id 중복 시
-                    return 'conflict id', 409
-                else:
-                    # id 미중복 시
-                    if len(password) >= 8:
-                        self.db.execute(query_formats.register_account_format % (uuid, id, password))
-                        return '', 201
-                    else:
-                        # 비밀번호 길이가 8자리 미만
-                        return '', 409
+            elif type == 3:
+                # 장애인
+                disability_rating = request.form['disability_rating']
+                disability_type = request.form['disability_type']
+                self.db.execute(query_formats.disabled_person_signup_format % (disability_rating, disability_type, id))
+                return '', 201
 
 
 class SignIn(Resource):
