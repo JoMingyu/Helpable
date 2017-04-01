@@ -32,7 +32,7 @@ class PersonInfo(Resource):
                 }
                 pass
 
-        user_contribution = self.db.execute(query_formats.get_person_contribution_format)
+        user_contribution = self.db.execute(query_formats.get_person_contribution_format % id)
         for row in user_contribution:
             data['give'] = row['give']
             data['take'] = row['take']

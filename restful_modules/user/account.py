@@ -16,6 +16,7 @@ class SignUp(Resource):
         age = request.form['age']
         type = request.form['type']
         gender = request.form['gender']
+        phone_number = request.form['phone_number']
         # Not null 데이터들
 
         print('Requested', id, password)
@@ -26,7 +27,7 @@ class SignUp(Resource):
             return '', 409
         else:
             # id 미존재
-            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, registration_key, name, int(age), int(type), gender))
+            self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, registration_key, name, int(age), int(type), gender, phone_number))
             self.db.execute(query_formats.person_contribution_initialize_format % id)
             if type == '1' or type == '2':
                 # 일반인
