@@ -32,8 +32,8 @@ class PersonInfo(Resource):
                 }
                 pass
 
-        user_activity = self.db.execute(query_formats.get_person_activity_format)
-        for row in user_activity:
+        user_contribution = self.db.execute(query_formats.get_person_contribution_format)
+        for row in user_contribution:
             data['give'] = row['give']
             data['take'] = row['take']
 

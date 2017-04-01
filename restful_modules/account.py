@@ -27,7 +27,7 @@ class SignUp(Resource):
         else:
             # id 미존재
             self.db.execute(query_formats.signup_primary_data_insert_format % (id, password, registration_key, name, int(age), int(type), gender))
-            self.db.execute(query_formats.person_activity_initialize_format % id)
+            self.db.execute(query_formats.person_contribution_initialize_format % id)
             if type == '1' or type == '2':
                 # 일반인
                 affiliation = request.form['affiliation']
