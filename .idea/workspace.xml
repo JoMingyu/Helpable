@@ -6,7 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/query_formats.py" afterPath="$PROJECT_DIR$/database/query_formats.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/restful_modules/help/help.py" afterPath="$PROJECT_DIR$/restful_modules/help/help.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/restful_modules/user/account.py" afterPath="$PROJECT_DIR$/restful_modules/user/account.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/restful_modules/user/user_info.py" afterPath="$PROJECT_DIR$/restful_modules/user/user_info.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +19,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6229994">
+    <splitter split-orientation="horizontal" split-proportion="0.5151156">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
@@ -35,47 +34,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="account.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/restful_modules/user/account.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="407">
-                  <caret line="76" column="35" lean-forward="false" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#0#34#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="profile_picture.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/restful_modules/user/profile_picture.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#34#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="user_info.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/restful_modules/user/user_info.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
-                  <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-                  <folding>
-                    <element signature="e#0#34#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="help.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/restful_modules/help/help.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+                <state relative-caret-position="420">
+                  <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
                   <folding>
                     <element signature="e#0#34#0" expanded="true" />
                   </folding>
@@ -90,8 +53,8 @@
           <file leaf-file-name="query_formats.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/database/query_formats.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="640">
-                  <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+                <state relative-caret-position="500">
+                  <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
                   <folding />
                 </state>
               </provider>
@@ -289,7 +252,7 @@
       <recent name="C:\Users\jmg\Desktop\1. 프로젝트\Helpable\supporter" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.clear_table">
+  <component name="RunManager" selected="Python.main">
     <configuration default="false" name="core" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -500,8 +463,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.clear_table" />
-        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="0" class="java.lang.String" itemvalue="Python.main" />
+        <item index="1" class="java.lang.String" itemvalue="Python.clear_table" />
         <item index="2" class="java.lang.String" itemvalue="Python.firebase_push" />
         <item index="3" class="java.lang.String" itemvalue="Python.core" />
       </list>
@@ -574,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491058300514</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="idx 기반 도움 요청 로드 포맷, 도움 요청 삭제 포맷 추가, 도움 요청 취소 기능 추가">
+      <created>1491058993492</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1491058993492</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -587,7 +557,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17883597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18095239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -612,7 +582,8 @@
     <MESSAGE value="firebase_push.send 메소드에 type 추가, 테스트용 index 삭제, help 모듈 작성중" />
     <MESSAGE value="비밀번호 변경 포맷 추가, 비밀번호 변경 기능 추가, help 모듈 동작 추가, help 관련 URI 추가" />
     <MESSAGE value="도움 요청 목록 로드 포맷 추가, 도움 요청 목록 열람 기능 추가, 도움 상세 내용 추가. 테스트 필요" />
-    <option name="LAST_COMMIT_MESSAGE" value="도움 요청 목록 로드 포맷 추가, 도움 요청 목록 열람 기능 추가, 도움 상세 내용 추가. 테스트 필요" />
+    <MESSAGE value="idx 기반 도움 요청 로드 포맷, 도움 요청 삭제 포맷 추가, 도움 요청 취소 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="idx 기반 도움 요청 로드 포맷, 도움 요청 삭제 포맷 추가, 도움 요청 취소 기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -706,16 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supporter/clear_table.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -730,6 +691,16 @@
           <caret line="12" column="77" lean-forward="true" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restful_modules/user/account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,28 +725,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restful_modules/user/account.py">
+    <entry file="file://$PROJECT_DIR$/server/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="76" column="35" lean-forward="false" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+        <state relative-caret-position="220">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/query_formats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="500">
+          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/restful_modules/help/help.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+        <state relative-caret-position="420">
+          <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>

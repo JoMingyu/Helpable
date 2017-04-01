@@ -16,12 +16,12 @@ class HelpRequest(Resource):
         latitude = request.form['lati']
         content = request.form['content']
 
-        self.db.execute(query_formats.request_help_format % (id, longitude, latitude, content))
-        user_info = self.db.execute(query_formats.get_user_data_format % id)
-        for row in user_info:
-            self.sender.send(row['name'] + '님이 도움을 요청합니다.',
-                             content,
-                             '')
+        self.db.execute(query_formats.request_help_format % (id, float(longitude), float(latitude), content))
+        user_info = self.db.execute(query_formats.get_user_info_format % id)
+        # for row in user_info:
+        #     self.sender.send(row['name'] + '님이 도움을 요청합니다.',
+        #                      content,
+        #                      '')
         return '', 201
 
     def get(self):
@@ -55,7 +55,7 @@ class HelpRequest(Resource):
         idx = request.form['idx']
 
         # 도움 요청의 주인이 맞는지 확인
-        help = self.db.execute(query_formats.get_help_list_format % int(idx))
+        help = self.db.execute(query_formats.get_help_format % int(idx))
         if id == help[0]['requester_id']:
             self.db.execute(query_formats.delete_help_format % int(idx))
             return '', 200

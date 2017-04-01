@@ -51,9 +51,10 @@ class SignIn(Resource):
         id = request.form['id']
         password = request.form['password']
 
-        account = self.db.execute(query_formats.id_exist_check_format % id)
-        if account:
+        exist = self.db.execute(query_formats.id_exist_check_format % id)
+        if exist:
             # id에 해당하는 계정 존재
+            account = self.db.execute(query_formats.get_user_info_format % id)
             if account[0]['password'] == password:
                 # 로그인 성공
                 return '', 201

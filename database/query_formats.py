@@ -2,7 +2,7 @@
 id_exist_check_format = "SELECT id FROM account WHERE id='%s'"
 
 # 유저 기본 정보 초기화
-signup_primary_data_insert_format = "INSERT INTO account(id, password, registration_key, name, age, type, gender, phone_number, password_question, password_answer) VALUES('%s', '%s', '%s', '%s', %d, %d, '%s', '%s')"
+signup_primary_data_insert_format = "INSERT INTO account(id, password, registration_key, name, age, type, gender, phone_number, password_question, password_answer) VALUES('%s', '%s', '%s', '%s', %d, %d, '%s', '%s', '%s', '%s')"
 person_contribution_initialize_format = "INSERT INTO user_contribution(id, give, take) VALUES('%s', 0, 0)"
 
 # 유저 종류에 따른 데이터 삽입 포맷
