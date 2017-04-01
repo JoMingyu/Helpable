@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d51c119-3478-4e1c-ac18-7e3d432e4908" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/restful_modules/help/help.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/restful_modules/mypage.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/restful_modules/account.py" afterPath="$PROJECT_DIR$/restful_modules/user/account.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/restful_modules/person_info.py" afterPath="$PROJECT_DIR$/restful_modules/user/user_info.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/restful_modules/profile_picture.py" afterPath="$PROJECT_DIR$/restful_modules/user/profile_picture.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/query_formats.py" afterPath="$PROJECT_DIR$/database/query_formats.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firebase/firebase_push.py" afterPath="$PROJECT_DIR$/firebase/firebase_push.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/restful_modules/help/help.py" afterPath="$PROJECT_DIR$/restful_modules/help/help.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main.py" afterPath="$PROJECT_DIR$/server/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +25,8 @@
           <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="14" column="62" lean-forward="true" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+                <state relative-caret-position="440">
+                  <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -53,8 +49,8 @@
           <file leaf-file-name="help.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/restful_modules/help/help.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+                <state relative-caret-position="340">
+                  <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#34#0" expanded="true" />
                   </folding>
@@ -95,7 +91,6 @@
       <list>
         <option value="$PROJECT_DIR$/server/core.py" />
         <option value="$PROJECT_DIR$/supporter/clear_table.py" />
-        <option value="$PROJECT_DIR$/firebase/firebase_push.py" />
         <option value="$PROJECT_DIR$/database/database.py" />
         <option value="$PROJECT_DIR$/restful_modules/mypage.py" />
         <option value="$PROJECT_DIR$/restful_modules/index_for_test.py" />
@@ -104,11 +99,12 @@
         <option value="$PROJECT_DIR$/restful_modules/profile_pictures.py" />
         <option value="$PROJECT_DIR$/restful_modules/account.py" />
         <option value="$PROJECT_DIR$/restful_modules/person_info.py" />
-        <option value="$PROJECT_DIR$/server/main.py" />
         <option value="$PROJECT_DIR$/restful_modules/user/account.py" />
         <option value="$PROJECT_DIR$/restful_modules/user/profile_picture.py" />
         <option value="$PROJECT_DIR$/database/query_formats.py" />
+        <option value="$PROJECT_DIR$/server/main.py" />
         <option value="$PROJECT_DIR$/restful_modules/help/help.py" />
+        <option value="$PROJECT_DIR$/firebase/firebase_push.py" />
       </list>
     </option>
   </component>
@@ -267,7 +263,7 @@
       <recent name="C:\Users\jmg\Desktop\1. 프로젝트\Helpable\supporter" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.clear_table">
+  <component name="RunManager" selected="Python.main">
     <configuration default="false" name="core" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -478,8 +474,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.clear_table" />
-        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="0" class="java.lang.String" itemvalue="Python.main" />
+        <item index="1" class="java.lang.String" itemvalue="Python.clear_table" />
         <item index="2" class="java.lang.String" itemvalue="Python.firebase_push" />
         <item index="3" class="java.lang.String" itemvalue="Python.core" />
       </list>
@@ -524,14 +520,21 @@
       <option name="project" value="LOCAL" />
       <updated>1491047343670</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="query_format 주석 처리, account 관련 모듈에 phone_number 추가, 패키징 변경">
+      <created>1491050294038</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1491050294038</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12135417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12135417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -558,7 +561,8 @@
     <MESSAGE value="프로필 사진 업로드, 다운로드 기능 추가, URI에 경로 추가, person_info 작업중" />
     <MESSAGE value="사용자 정보 조회 작업 완료, 사용자 기여 정보 조회 format 추가" />
     <MESSAGE value="사용자 정보 조회 테이블 person_contribution으로 재설정" />
-    <option name="LAST_COMMIT_MESSAGE" value="사용자 정보 조회 테이블 person_contribution으로 재설정" />
+    <MESSAGE value="query_format 주석 처리, account 관련 모듈에 phone_number 추가, 패키징 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="query_format 주석 처리, account 관련 모듈에 phone_number 추가, 패키징 변경" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -636,16 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/firebase/firebase_push.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#33#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
@@ -690,10 +684,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.py">
+    <entry file="file://$PROJECT_DIR$/restful_modules/user/account.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="14" column="62" lean-forward="true" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -708,20 +712,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restful_modules/user/account.py">
+    <entry file="file://$PROJECT_DIR$/firebase/firebase_push.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        <state relative-caret-position="560">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/restful_modules/help/help.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+        <state relative-caret-position="340">
+          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
