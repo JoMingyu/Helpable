@@ -20,4 +20,7 @@ get_user_data_format = "SELECT * FROM account WHERE id='%s'"
 get_user_contribution_format = "SELECT * FROM user_contribution WHERE id='%s'"
 
 # 도움 요청 데이터 삽입 포맷
-request_help_format = "INSERT INTO help_list(requester_id, date, longitude, latitude) VALUES('%s', CURDATE(), %f, %f)"
+request_help_format = "INSERT INTO help_list(requester_id, date, longitude, latitude, content) VALUES('%s', CURDATE(), %f, %f, '%s')"
+
+# 도움 요청 목록 로드 포맷
+get_help_list_format = "SELECT * FROM help_list"
