@@ -16,8 +16,8 @@ class HelpRequest(Resource):
         latitude = request.form['lati']
         content = request.form['content']
 
-        self.db.execute(query_formats.request_help_format % (id, float(longitude), float(latitude), content))
         user_info = self.db.execute(query_formats.get_user_info_format % id)
+        self.db.execute(query_formats.request_help_format % (id, user_info[0]['registration_key'], float(longitude), float(latitude), content))
         # for row in user_info:
         #     self.sender.send(row['name'] + '님이 도움을 요청합니다.',
         #                      content,
