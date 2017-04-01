@@ -48,3 +48,8 @@ get_contributor_list_format = "SELECT * FROM contributors WHERE idx=%d"
 
 # 기여 취소 포맷
 delete_contributor_format = "DELETE FROM contributors WHERE idx=%d AND contributor_id='%s'"
+
+# ---
+
+# 기여자 선정 포맷
+select_contributor_format = "UPDATE help_list SET contributor_id='%s' WHERE idx=%d"

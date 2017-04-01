@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request, json
+from flask import request, jsonify
 from database import Database
 import query_formats
 from firebase_push import FCMSender
@@ -18,10 +18,9 @@ class HelpRequest(Resource):
 
         user_info = self.db.execute(query_formats.get_user_info_format % id)
         self.db.execute(query_formats.request_help_format % (id, user_info[0]['registration_key'], float(longitude), float(latitude), content))
-        # for row in user_info:
-        #     self.sender.send(row['name'] + '님이 도움을 요청합니다.',
-        #                      content,
-        #                      '')
+        self.sender.send('Helpable',
+                         user_info[0]['name'] + '님이 도움을 요청합니다.')
+
         return '', 201
 
     def get(self):
@@ -46,7 +45,7 @@ class HelpRequest(Resource):
 
             help_list.append(data)
 
-        return json.dumps(help_list), 200
+        return jsonify(result=data)
 
     def delete(self):
         # 도움 요청 취소
@@ -72,7 +71,11 @@ class HelpResponse(Resource):
         idx = request.form['idx']
 
         self.db.execute(query_formats.response_help_format % (int(idx), id))
-        # 푸쉬
+        requester_info = self.db.execute(query_formats.get_help_format % idx)
+        requester_key = requester_info[0]['requester_key']
+        self.sender.send('Helpable',
+                         '기여자가 나타났습니다.',
+                         requester_key)
         return '', 201
 
     def get(self):
@@ -85,6 +88,7 @@ class HelpResponse(Resource):
             user_info = self.db.execute(query_formats.get_user_info_format % row['contributor_id'])
             data = {
                 'idx': row['idx'],
+                'id': row['contributor_id'],
                 'name': user_info[0]['name'],
                 'age': user_info[0]['age'],
                 'gender': user_info[0]['gender'],
@@ -92,7 +96,7 @@ class HelpResponse(Resource):
             }
             contributor_list.append(data)
 
-        return json.dumps(data), 200
+        return jsonify(result=data)
 
     def delete(self):
         # 기여 취소
@@ -105,10 +109,28 @@ class HelpResponse(Resource):
 
 
 class Accept(Resource):
+    # 기여자 선정
     db = Database()
 
     def post(self):
-        # 도움 요청자의 기여자 선정
+        idx = request.form['idx']
+        id = request.form['id']
+
+        self.db.execute(query_formats.select_contributor_format % (id, int(idx)))
+        user_info = self.db.execute(query_formats.get_user_info_format % id)
+        contributor_key = user_info[0]['registration_key']
+        self.sender.send('Helpable',
+                         'asdfasdf',
+                         contributor_key)
+
+        return '', 201
+
+
+class Connect(Resource):
+    db = Database()
+
+    def get(self):
+        # 상대방 정보 조회
         pass
 
 
