@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request, json
+from flask import request, jsonify
 from database import Database
 import query_formats
 
@@ -77,7 +77,7 @@ class Password(Resource):
         data = {'question': user_info[0]['password_question'],
                 'answer': user_info[0]['password_answer']}
 
-        return json.dumps(data)
+        return jsonify(result=data)
 
     def post(self):
         # 비밀번호 변경
