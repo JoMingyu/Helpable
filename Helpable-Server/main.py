@@ -1,11 +1,10 @@
 from flask import Flask
 from flask_restful import Api
 
-from user import account
-from user import user_info
-from user import profile_picture
-
-from help import help
+from restful_modules import account
+from restful_modules import help
+from restful_modules import profile_picture
+from restful_modules import user_info
 
 app = Flask(__name__)
 api = Api(app)
@@ -25,5 +24,4 @@ api.add_resource(help.Completion, "/help/completion")
 
 if __name__ == "__main__":
     print("-- Server Started")
-    # app.run('youngjae1047.cafe24.com')
-    app.run('30.0.1.245')
+    app.run('0.0.0.0')

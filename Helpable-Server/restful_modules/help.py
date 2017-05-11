@@ -1,13 +1,12 @@
 from flask_restful import Resource
 from flask import request, jsonify
-from database import Database
-import query_formats
-from firebase_push import FCMSender
+from database import database, query_formats
+from firebase import firebase_push
 
 
 class HelpRequest(Resource):
-    db = Database()
-    sender = FCMSender('AIzaSyDEqNM3DgDvmxryb2pDrjry5wLHuT8NPjI')
+    db = database.Database()
+    sender = firebase_push.FCMSender('AIzaSyDEqNM3DgDvmxryb2pDrjry5wLHuT8NPjI')
 
     def post(self):
         # 도움 요청
@@ -63,7 +62,7 @@ class HelpRequest(Resource):
 
 
 class HelpResponse(Resource):
-    db = Database()
+    db = database.Database()
 
     def post(self):
         # 기여자 등록
@@ -112,7 +111,7 @@ class HelpResponse(Resource):
 
 class Accept(Resource):
     # 기여자 선정
-    db = Database()
+    db = database.Database()
 
     def post(self):
         id = request.form['id']
@@ -131,7 +130,7 @@ class Accept(Resource):
 
 
 class Connect(Resource):
-    db = Database()
+    db = database.Database()
 
     def get(self):
         # 상대방 정보 조회
@@ -139,7 +138,7 @@ class Connect(Resource):
 
 
 class Completion(Resource):
-    db = Database()
+    db = database.Database()
 
     def post(self):
         # 도움 완료

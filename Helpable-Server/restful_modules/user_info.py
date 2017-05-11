@@ -1,11 +1,10 @@
 from flask_restful import Resource
 from flask import request, jsonify
-from database import Database
-import query_formats
+from database import database, query_formats
 
 
 class UserInfo(Resource):
-    db = Database()
+    db = database.Database()
 
     def get(self):
         id = request.args.get('id')

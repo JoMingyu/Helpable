@@ -1,4 +1,4 @@
-from database import Database
+from database import database
 
 # Database().execute("DELETE FROM account")
 # Database().execute("DELETE FROM help_list")

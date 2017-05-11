@@ -1,6 +1,5 @@
 from pyfcm import FCMNotification
-from database import Database
-import query_formats
+from database import database, query_formats
 
 
 class FCMSender:
@@ -25,7 +24,7 @@ class FCMSender:
 
     @staticmethod
     def get_clients_to_push():
-        rows = Database().execute(query_formats.get_registration_id_format)
+        rows = database.Database().execute(query_formats.get_registration_id_format)
         clients_to_push = list()
         for row in rows:
             clients_to_push.append(row['registration_key'])

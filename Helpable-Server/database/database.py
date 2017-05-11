@@ -9,7 +9,7 @@ from pymysql import IntegrityError
 class Database:
     host = 'localhost'
     user = 'root'
-    password = ''
+    password = 'uursty199'
     db = 'helpable'
     charset = 'utf8'
 

@@ -1,12 +1,12 @@
 from flask_restful import Resource
 from flask import request, jsonify
-from database import Database
-import query_formats
+from database import database
+from database import query_formats
 
 
 class SignUp(Resource):
     # 회원가입
-    db = Database()
+    db = database.Database()
 
     def post(self):
         id = request.form['id']
@@ -45,7 +45,7 @@ class SignUp(Resource):
 
 class SignIn(Resource):
     # 로그인
-    db = Database()
+    db = database.Database()
 
     def post(self):
         id = request.form['id']
@@ -67,7 +67,7 @@ class SignIn(Resource):
 
 class Password(Resource):
     # 비밀번호 찾기
-    db = Database()
+    db = database.Database()
 
     def get(self):
         # 질문 정보 제공
@@ -90,7 +90,7 @@ class Password(Resource):
 
 class Token(Resource):
     # 토큰 업데이트
-    db = Database()
+    db = database.Database()
 
     def post(self):
         id = request.form['id']
